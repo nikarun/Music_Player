@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+ <style>
+        .Input{
+        height:35px;
+        width:350px;
+        color:orange;
+        margin-bottom:20px;
+        border-radius:10px;
+        border-color:brown
+        }
+    </style>
+</head>
+<body>
+<center>
+    {% if error != None %}
+    <h2 style="color:red">{{error}}</h2>
+    {% endif %}
+
+    <h1>Add New Album</h1>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" placeholder="Name" name="name" class="Input"><br>
+        <input type="text" placeholder="User Name" name="user_name" class="Input"><br>
+        <input type="email" placeholder="Email" name="email" class="Input"><br>
+        <input type="password" placeholder="Password" name="password1" class="Input"><br>
+        <input type="password" placeholder="Confirm Password" name="password2" class="Input"><br>
+        <button type="submit" style="color:black;width:250px;height:35px;border-radius:10px;border-color:brown">Add New Album</button><br>
+      <a href="{% url 'Login' %}"><h2>Already User Login</h2></a>
+    </form>
+</center>
+</body>
+</html>

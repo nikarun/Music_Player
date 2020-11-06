@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+<style>
+    .Input{
+    color:brown;
+    height:30px;
+    width:300px;
+  border-radius:30px;
+    }
+</style>
+</head>
+<body>
+<center>
+     <h1>Login Your Account</h1>
+    <h2>Enter You Details</h2>
+
+
+
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if error != None %}
+    <h1 style="color:red">{{error}}</h1>
+        Username<br>
+        <input type="text" placeholder="Username" name="username" value="{{last_user}}" class="Input">
+        <br><br>
+        Password<br>
+        <input type="password" placeholder="password" name="password" autofocus class="Input"><br>
+        {% else %}
+        Username<br>
+        <input type="text" placeholder="Username" name="username" class="Input">
+        <br><br>
+        Password<br>
+        <input type="password" placeholder="password" name="password"  class="Input"><br>
+{% endif %}
+
+        <br>
+        <button type="submit" style="color:green;height:30px;width:100px">Login</button>
+
+        <a href="{% url 'register' %}"><h2 style="color:blue">New User Register</h2></a>
+    </form>
+</center>
+</body>
+</html>
