@@ -2,17 +2,16 @@ from django.db import models
 
 class Album(models.Model):
     name=models.CharField(max_length=50)
-    artist=models.CharField(max_length=50)
+    director=models.CharField(max_length=50,blank=True,null=True)
     image=models.ImageField(max_length=1200,null=True)
 
     def __str__(self):
         return self.name
 
 
-
 class Song(models.Model):
     title = models.CharField(max_length=50)
-   # artist = models.CharField(max_length=50, null=True,blank=True)
+    artist = models.CharField(max_length=50, null=True,blank=True)
    # lyricists=models.CharField(max_length=50, null=True,blank=True)
    # image = models.CharField(max_length=1200, null=True,blank=True)
    # song_url=models.CharField(max_length=1200, null=True,blank=True)

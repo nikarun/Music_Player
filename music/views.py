@@ -10,10 +10,10 @@ def album(request):
     dict={"album":data,"check":check}
     return render(request,"album.html",dict)
 def album_details(request,a_id):
-        data=Album.objects.get(id = a_id)
-        dat=Song.objects.filter(album_id=data)
-        dict={"album":data,"song":dat}
-        return render(request,"album_details.html",dict)
+    data=Album.objects.get(id = a_id)
+    dat=Song.objects.filter(album_id=data)
+    dict={"album":data,"song":dat}
+    return render(request,"album_details.html",dict)
 
 def song_list(request):
     data=Song.objects.all()

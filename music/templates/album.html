@@ -3,26 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>My_Album</title>
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body style="background-color:yellow">
+
+<div class="container">
 <center>
 
-<h1 style="color:green">Here is List Of All Songs Of My Album along with their Artists</h1>
+<h1 style="color:green">Albums</h1>
+
     {% if check %}
     <a href="{% url 'Logout' %}"><button style="width:100px;height:25px;background-color:red;border-radius:20px">{{request.user.username}}--Logout</button></a>
     {% else %}
     <a href="{% url 'Login' %}"><button style="width:100px;height:25px;background-color:green;border-radius:20px">Login</button></a>
     {% endif %}
    <br><br>
+       <table class="table table-hover">
     {% for i in album %}
-    <a href="{% url 'album_details' i.id %}"><li style="color:blue;font-size:30px">{{i.name}} - {{i.artist}}
-        <a href="{% url 'delete' i.id %}"><img src="https://cdn2.iconfinder.com/data/icons/business-1-58/48/69-512.png" style="width:20px">
 
+<tr>
+     <td>   <a href="{% url 'album_details' i.id %}"><li style="font-size:30px;color:red">{{i.name}}
+        <a href="{% url 'delete' i.id %}"><img src="https://cdn2.iconfinder.com/data/icons/business-1-58/48/69-512.png" style="width:20px">
+</td>
+    </tr>
     {% endfor %}
+            </table>
         <br>
-        <a href="{% url 'song_list' %}"><button style="border-radius:20px; padding:10px; background-color:red">Song List </button></a><br>
-<a href="{% url 'add_album' %}"><button style="border-radius:20px; padding:10px; background-color:green">Add New Album</button></a><br>
+        <a href="{% url 'song_list' %}"><button style="border-radius:20px; padding:10px; background-color:red">Song List </button></a>
+<a href="{% url 'add_album' %}"><button style="border-radius:20px; padding:10px; background-color:coral">Add New Album</button></a>
 <a href="{% url 'add_song' %}"><button style="border-radius:20px; padding:10px; background-color:blue">Add New Song</button></a>
 </center>
 </body>
+
 </html>

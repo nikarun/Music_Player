@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <title>Album_Details</title>
 </head>
-<body>
+<body style="background-color:orange">
 <center>
 <h2>Here Are details of your album</h2>
-    <h2>Name:  {{album.name}}</h2>
-    <h2>Artist Name:   {{album.artist}}</h2>
-    <img src="{{ album.image.url }}" style="height:400px;width:400px"><br>
+    <h2>Album Name:  {{album.name}}</h2>
+{% if album.director %}
+    <h2>ALbum director:{{album.director}}</h2>
+    {% endif %}
+
     <br>
     <h2>List of Songs belonging to these Album</h2>
 {% for i in song %}
     {% if i.file %}
-   <a href="{{ i.file.url }}"> <li style="font-size:25px">{{i.title}}<br>
+   <a href="{{ i.file.url }}"> <li style="font-size:25px">{{i.title}}<br></a>
      {% else %}
        <li style="font-size:25px">{{i.title}}<br>
     {% endif %}
 {% endfor %}
+       <br>
+    <h3>Album Banner</h3>
+        <img src="{{ album.image.url }}" style="height:400px;width:400px"><br>
 </center>
 </body>
 </html>
